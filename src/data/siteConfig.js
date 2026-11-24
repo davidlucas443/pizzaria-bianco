@@ -1,127 +1,33 @@
+const pizza480 = new URL('../assets/bianco-margherita-480.webp', import.meta.url).href;
+const pizza800 = new URL('../assets/bianco-margherita-800.webp', import.meta.url).href;
+const pizza1280 = new URL('../assets/bianco-margherita-1280.webp', import.meta.url).href;
 export const siteConfig = {
-  brandName: 'Pizzaria Bianco',
-  slogan: 'Sabor artesanal, presença premium e entrega que chega com padrão de marca grande.',
-  description:
-    'Uma landing page comercial pensada para restaurantes premium que precisam converter visitas em pedidos, reservas e contatos com uma experiência visual de alto padrão.',
-  logoText: 'Bianco',
-  rating: 5,
-  reviewCount: '1.284',
-  deliveryTime: '35-45 min',
-  location: 'Jardins, São Paulo',
-  hours: 'Seg a Dom · 18h às 23h30',
-  phone: '(11) 97582-3883',
-  whatsapp: '5511975823883',
-  address: 'Alameda Santos, 1080 - Jardins, São Paulo - SP',
-  ctaPrimary: 'Peça Agora',
-  ctaSecondary: 'Ver Cardápio',
-  ctaReserve: 'Reservar Mesa',
-  ctaWhatsApp: 'Chamar no WhatsApp',
-  quickFacts: [
-    { label: 'Entrega', value: '35-45 min' },
-    { label: 'Localização', value: 'Jardins' },
-    { label: 'Avaliação', value: '4.9/5' },
-  ],
-  about: {
-    headline: 'Uma experiência pensada para impressionar no primeiro toque.',
-    paragraphs: [
-      'A Bianco nasceu com a proposta de elevar a pizza artesanal a uma experiência premium, combinando ingredientes selecionados, operação enxuta e um ambiente que transmite cuidado em cada detalhe.',
-      'O resultado é uma marca forte, com percepção de valor alta, ideal para quem vende qualidade, confiança e conveniência sem perder sofisticação.',
-    ],
-  },
-  highlights: [
-    {
-      title: 'Massa de longa fermentação',
-      text: 'Leve, aromática e com textura impecável para destacar a assinatura da casa.',
-    },
-    {
-      title: 'Ingredientes frescos',
-      text: 'Seleção diária para entregar brilho, sabor e consistência em cada pedido.',
-    },
-    {
-      title: 'Experiência premium',
-      text: 'Ambiente acolhedor, atendimento ágil e percepção de marca acima da média.',
-    },
-  ],
-  featuredDishes: [
-    {
-      name: 'Margherita Bianco',
-      description: 'Molho artesanal, mozzarella fior di latte e manjericão fresco.',
-      price: 'R$ 64',
-      image:
-        'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80',
-    },
-    {
-      name: 'Pepperoni Dolce',
-      description: 'Pepperoni levemente picante, mel trufado e parmesão curado.',
-      price: 'R$ 72',
-      image:
-        'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=1200&q=80',
-    },
-    {
-      name: 'Trufada do Chef',
-      description: 'Cogumelos, creme trufado e toque de azeite extravirgem.',
-      price: 'R$ 84',
-      image:
-        'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80',
-    },
-  ],
-  menuCategories: [
-    {
-      name: 'Entradas',
-      items: [
-        { name: 'Bruschetta da Casa', description: 'Tomate confit, pesto e redução balsâmica.', price: 'R$ 29' },
-        { name: 'Burrata Cremosa', description: 'Burrata, tomates italianos e azeite extra virgem.', price: 'R$ 38' },
-      ],
-    },
-    {
-      name: 'Pizzas',
-      items: [
-        { name: 'Calabresa Nobre', description: 'Calabresa artesanal, cebola roxa e finalização fresca.', price: 'R$ 66' },
-        { name: 'Quatro Queijos Premium', description: 'Parmesão, gorgonzola, mozzarella e provolone.', price: 'R$ 74' },
-      ],
-    },
-    {
-      name: 'Doces',
-      items: [
-        { name: 'Chocolate & Flor de Sal', description: 'Chocolate belga, morangos e flor de sal.', price: 'R$ 42' },
-        { name: 'Doce de Leite Brulée', description: 'Doce de leite, banana caramelizada e crocante.', price: 'R$ 45' },
-      ],
-    },
-  ],
-  features: [
-    'Ingredientes frescos',
-    'Atendimento rápido',
-    'Ambiente climatizado',
-    'Delivery próprio',
-    'Estacionamento',
-    'Wi-Fi premium',
-  ],
-  galleryImages: [
-    'https://images.unsplash.com/photo-1498579809087-ef1e558fd1da?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1579697096985-41fe1430e5df?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1512003867696-6d5ce6835040?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=1200&q=80',
-  ],
-  testimonials: [
-    {
-      name: 'Camila Andrade',
-      role: 'Cliente recorrente',
-      quote: 'A apresentação da marca já passa confiança. A pizza chega bonita, quente e com sabor consistente.',
-      rating: 5,
-    },
-    {
-      name: 'Ricardo Menezes',
-      role: 'Executivo',
-      quote: 'O atendimento é rápido e a experiência visual transmite exatamente o nível de qualidade que eu esperava.',
-      rating: 5,
-    },
-    {
-      name: 'Juliana Costa',
-      role: 'Família Bianco',
-      quote: 'Ambiente elegante, cardápio claro e entrega sem dor de cabeça. Virou nosso lugar favorito.',
-      rating: 5,
-    },
-  ],
+  brand: { name: 'bianco', subtitle: 'PIZZA ARTIGIANALE', logo: null },
+  meta: { title: 'Bianco | Pizza feita para compartilhar', description: 'Pizzas artesanais, sabores da casa e tempo para estar junto. Conheça o cardápio da Bianco. Demonstração ilustrativa.' },
+  demoNotice: 'Demonstração · Marca, pratos, preços e horários ilustrativos.',
+  sections: { presentation: true, featured: true, story: true, features: true },
+  // Contatos intencionalmente vazios. Use apenas dados autorizados do cliente.
+  contact: { whatsapp: '', phone: '', instagram: '', address: '', hours: 'Terça a domingo · 18h às 23h', messages: { order: 'Olá, Bianco! Gostaria de fazer um pedido.', reservation: 'Olá, Bianco! Gostaria de consultar a disponibilidade para reservar uma mesa.' } },
+  ui: { headerOrder: 'Pedir', skip: 'Pular para o conteúdo', openMenu: 'Abrir menu', closeMenu: 'Fechar menu', close: 'Fechar aviso', backTop: 'Voltar ao início', order: 'Pedir no WhatsApp', reserve: 'Reservar mesa', menu: 'Ver cardápio', map: 'Abrir no mapa', phone: 'Ligar para a casa', instagram: 'Instagram', unavailableTitle: 'Ainda não estamos recebendo contatos', unavailableText: 'Esta é uma demonstração. O canal de atendimento ainda não foi configurado e nenhuma mensagem será enviada.', addressEmpty: 'Endereço a confirmar', contactEmpty: 'Contatos indisponíveis nesta demonstração.' },
+  navigation: [{ label: 'A casa', id: 'sobre', section: 'presentation' }, { label: 'Sabores', id: 'destaques', section: 'featured' }, { label: 'Cardápio', id: 'cardapio' }, { label: 'Onde estamos', id: 'contato' }],
+  hero: { eyebrow: 'Feita à mão. Sem pressa.', title: 'Pizza de longa', titleAccent: 'fermentação.', text: 'Borda leve, forno quente. O encontro de poucos ingredientes com todo o tempo que uma boa pizza merece.', image: { src: pizza1280, srcSet: pizza480 + ' 480w, ' + pizza800 + ' 800w, ' + pizza1280 + ' 1280w', sizes: '(max-width: 600px) 100vw, 62vw', alt: 'Imagem ilustrativa de uma Margherita vista de cima, com borda dourada, mozzarella, tomate e manjericão' }, caption: 'Tomate. Mozzarella. Manjericão.', detail: 'Da nossa casa para a sua mesa.', bottomNote: 'Massa, fogo & tempo.', exploreLabel: 'Do forno à mesa', productLabel: 'Margherita · A essência da casa' },
+  journey: { eyebrow: 'O sabor está nos detalhes', title: 'Poucos ingredientes. Tudo no ponto.', steps: [
+    { label: 'Tomate & manjericão', title: 'O essencial, bem-feito.', text: 'Molho de tomate, mozzarella e manjericão. O encontro que nunca precisa de mais nada.', image: { src: './images/pizza-tomate.webp', alt: 'Pizza com mozzarella, tomate e manjericão sobre uma bancada' } },
+    { label: 'Pepperoni & presunto', title: 'Sabor que fica.', text: 'Pepperoni, presunto e queijo derretido sobre uma borda dourada. Para quem gosta de intensidade.', image: { src: './images/pizza-pepperoni.webp', alt: 'Pizza de pepperoni e presunto com queijo derretido' } },
+    { label: 'Frango & abacaxi', title: 'Um encontro inesperado.', text: 'Frango, abacaxi e cebola roxa. Um toque de doçura para mudar a próxima fatia.', image: { src: './images/pizza-forno.webp', alt: 'Pizza de frango, abacaxi e cebola roxa vista de cima' } },
+  ] },
+  presentation: { eyebrow: 'Benvenuti à Bianco', title: 'A melhor parte é dividir.', text: 'A primeira fatia, a conversa que se estende, o último pedaço disputado. Nossa mesa é um convite para aproveitar a comida e a companhia, do seu jeito.' },
+  featured: { eyebrow: 'Sabores da casa', title: 'Um encontro de bons ingredientes.', text: 'Três maneiras de começar a escolher. Todas feitas para compartilhar.', items: [
+    { name: 'Tomate & manjericão', description: 'Molho de tomate, mozzarella e folhas frescas de manjericão.', price: 64, image: { src: './images/pizza-tomate.webp', alt: 'Pizza com molho de tomate, queijo derretido e folhas de manjericão' } },
+    { name: 'Pepperoni & presunto', description: 'Mozzarella, molho de tomate, pepperoni e presunto.', price: 72, image: { src: './images/pizza-pepperoni.webp', alt: 'Pizza com pepperoni, presunto e queijo sobre borda assada' } },
+    { name: 'Frango & abacaxi', description: 'Frango, queijo, abacaxi, cebola roxa e ervas na massa artesanal.', price: 68, image: { src: './images/pizza-forno.webp', alt: 'Pizza de frango, abacaxi, cebola roxa, queijo e ervas vista de cima' } },
+  ] },
+  menu: { eyebrow: 'À sua escolha', title: 'O cardápio.', text: 'Pizzas inteiras para dividir, pequenas entradas para abrir a noite e um final doce.', note: 'Valores ilustrativos. Consulte ingredientes, disponibilidade, tamanhos e restrições alimentares antes de pedir.', categories: [
+    { name: 'Para começar', items: [{ name: 'Bruschetta', description: 'Pão tostado, tomate, alho e manjericão.', price: 28 }, { name: 'Burrata com tomates', description: 'Burrata cremosa, tomates e azeite extravirgem.', price: 39 }] },
+    { name: 'Do nosso forno', items: [{ name: 'Tomate & manjericão', description: 'Tomate, mozzarella e manjericão fresco.', price: 64 }, { name: 'Pepperoni & presunto', description: 'Molho de tomate, mozzarella, pepperoni e presunto.', price: 72 }, { name: 'Quatro queijos', description: 'Mozzarella, parmesão, provolone e gorgonzola.', price: 74 }, { name: 'Frango & abacaxi', description: 'Frango, queijo, abacaxi, cebola roxa e ervas.', price: 68 }] },
+    { name: 'Um final doce', items: [{ name: 'Chocolate com morango', description: 'Chocolate derretido e morangos frescos.', price: 42 }, { name: 'Banana & canela', description: 'Banana assada, canela e doce de leite.', price: 40 }] },
+  ] },
+  story: { eyebrow: 'O jeito Bianco', title: 'Da farinha à última fatia, cuidado.', paragraphs: ['A Bianco nasce da ideia de uma casa de portas abertas: poucos ingredientes, boas combinações e uma mesa onde sempre cabe mais alguém.', 'O preparo começa na massa e termina no forno. No meio, há o cuidado com cada ingrediente e a vontade de servir uma pizza que faça a conversa durar.'], image: { src: './images/mesa.webp', alt: 'Mesas de um restaurante com iluminação acolhedora' } },
+  features: { eyebrow: 'Coisas que fazem a diferença', title: 'Simplicidade bem-feita.', items: [{ title: 'Massa com tempo', text: 'Um preparo cuidadoso para uma massa leve, com textura e sabor.' }, { title: 'Sabor em cada escolha', text: 'Combinações que deixam os ingredientes aparecerem.' }, { title: 'Na mesa ou em casa', text: 'Escolha onde aproveitar. Consulte as opções de retirada e entrega ao pedir.' }] },
+  visit: { eyebrow: 'Vamos dividir uma pizza?', title: 'Tem lugar para mais uma boa noite.', text: 'Consulte o atendimento para fazer seu pedido ou combinar uma mesa. A gente cuida da pizza; você escolhe a companhia.', hoursLabel: 'Horário da casa', addressLabel: 'Encontre a Bianco' },
 };

@@ -1,0 +1,40 @@
+import type { Brand, ContactConfig, Heading, Image, Navigation, TextItem, UI } from './types';
+export interface Property { reference: string; name: string; type: string; location: string; price: number; area: number; bedrooms: number; bathrooms: number; parking: number; description: string; features: string[]; photos: Image[]; costs: string; }
+interface SiteConfig {
+  brand: Brand; meta: { title: string; description: string }; demoNotice: string;
+  sections: Record<'benefits' | 'about' | 'process', boolean>; contact: ContactConfig;
+  ui: UI & { all: string; details: string; interest: string; reference: string; area: string; bedrooms: string; bathrooms: string; parking: string; features: string; costs: string; photosNote: string };
+  navigation: Navigation[]; hero: Heading & { image: Image; caption: string; location: string };
+  listings: Heading & { notice: string; interestMessage: string; items: Property[] };
+  benefits: Heading & { items: TextItem[] };
+  about: Heading & { image: Image; paragraphs: string[]; registration: string };
+  process: Heading & { items: TextItem[] }; visit: Heading;
+}
+export const siteConfig: SiteConfig = {
+  brand: { name: 'Clara', subtitle: 'Curadoria imobiliária', logo: null },
+  meta: { title: 'Clara | Espaço para uma nova história', description: 'Uma seleção de casas e apartamentos para conhecer com calma. Veja características e converse sobre sua busca. Imóveis ilustrativos.' },
+  demoNotice: 'Demonstração · Marca, imóveis, localizações e valores ilustrativos. Fotografias de referência.',
+  sections: { benefits: true, about: true, process: true },
+  contact: { whatsapp: '', phone: '', instagram: '', address: '', hours: 'Segunda a sexta · 9h às 18h · Visitas sob agendamento', message: 'Olá! Gostaria de conversar sobre a busca pelo meu próximo imóvel.' },
+  ui: { skip: 'Pular para o conteúdo', openMenu: 'Abrir menu', closeMenu: 'Fechar menu', close: 'Fechar aviso', backTop: 'Voltar ao início', primary: 'Conversar sobre minha busca', secondary: 'Explorar imóveis', map: 'Como chegar', phone: 'Contato por telefone', instagram: 'Instagram', unavailableTitle: 'Contato ainda não configurado', unavailableText: 'Estes imóveis são ilustrativos. O canal de atendimento ainda não foi configurado. Nenhuma mensagem será enviada.', addressEmpty: 'Atendimento presencial a confirmar', contactEmpty: 'Canais indisponíveis nesta demonstração.', hoursLabel: 'Quando conversar', addressLabel: 'Ponto de encontro', all: 'Todos os imóveis', details: 'Fotos e detalhes', interest: 'Tenho interesse', reference: 'Referência', area: 'Área privativa', bedrooms: 'Quartos', bathrooms: 'Banheiros', parking: 'Vagas', features: 'Mais sobre o espaço', costs: 'Condições e despesas', photosNote: 'Fotos de referência; não retratam uma unidade real anunciada.' },
+  navigation: [{ label: 'Imóveis', id: 'imoveis' }, { label: 'O atendimento', id: 'atendimento', section: 'benefits' }, { label: 'Sobre', id: 'sobre', section: 'about' }],
+  hero: { eyebrow: 'Morar é encontrar o seu lugar.', title: 'Espaço para uma nova história.', text: 'Luz na sala. Uma rua tranquila. Espaço para o que vem pela frente. Sua busca começa pelo que faz sentido para você.', image: { src: './images/jardim.webp', alt: 'Casa contemporânea com jardim e grandes aberturas de vidro' }, caption: 'Um novo olhar para o seu próximo endereço.', location: 'Casas e apartamentos · Seleção para conhecer' },
+  listings: { eyebrow: 'Uma seleção para você', title: 'Lugares que merecem uma visita.', text: 'Explore os espaços, compare os detalhes e imagine sua rotina em cada um.', notice: 'Anúncios de demonstração. Valores, disponibilidade e despesas precisam ser confirmados antes de qualquer negociação.', interestMessage: 'Olá! Tenho interesse no imóvel {name}, referência {reference}. Gostaria de saber mais e consultar uma visita.', items: [
+    { reference: 'CL-101', name: 'Luz em cada canto', type: 'Apartamento', location: 'Vila Madalena · São Paulo, SP (aproximada)', price: 890000, area: 86, bedrooms: 2, bathrooms: 2, parking: 1, description: 'Ambientes integrados e janelas amplas para uma rotina com mais luz natural. Um espaço para receber e viver no seu ritmo.', features: ['Sala e jantar integrados', 'Cozinha aberta', 'Janelas amplas'], costs: 'Condomínio e IPTU a confirmar. Valor de venda ilustrativo.', photos: [{ src: './images/apartamento.webp', alt: 'Sala de estar clara com sofá, mesa e janelas amplas' }, { src: './images/interior.webp', alt: 'Ambiente interno com sala e cozinha integradas, fotografia de referência' }] },
+    { reference: 'CL-202', name: 'O verde à sua porta', type: 'Casa', location: 'Alto de Pinheiros · São Paulo, SP (aproximada)', price: 1850000, area: 180, bedrooms: 3, bathrooms: 3, parking: 2, description: 'Uma casa aberta para o jardim, com espaços de convivência e respiro entre os ambientes. Para quem procura mais tempo do lado de fora.', features: ['Jardim privativo', 'Área social integrada', 'Espaço para escritório'], costs: 'IPTU e demais despesas a confirmar. Valor de venda ilustrativo.', photos: [{ src: './images/jardim.webp', alt: 'Fachada contemporânea de uma casa com jardim' }, { src: './images/casa.webp', alt: 'Casa contemporânea com piscina, fotografia de referência' }] },
+    { reference: 'CL-303', name: 'Seu refúgio na cidade', type: 'Apartamento', location: 'Pinheiros · São Paulo, SP (aproximada)', price: 620000, area: 54, bedrooms: 1, bathrooms: 1, parking: 1, description: 'Uma planta compacta, com espaço para a vida acontecer. Ambientes acolhedores e possibilidades para organizar cada detalhe do seu jeito.', features: ['Ambientes funcionais', 'Sala de estar acolhedora', 'Planta compacta'], costs: 'Condomínio e IPTU a confirmar. Valor de venda ilustrativo.', photos: [{ src: './images/refugio.webp', alt: 'Apartamento com sala decorada e iluminação natural' }, { src: './images/interior.webp', alt: 'Detalhe de um ambiente integrado, fotografia de referência' }] },
+  ] },
+  benefits: { eyebrow: 'O atendimento', title: 'Antes de abrir uma porta, uma boa conversa.', text: 'O imóvel certo começa com uma busca bem compreendida.', items: [
+    { title: 'Sua rotina como ponto de partida', text: 'Localização, orçamento e prioridades entram na conversa antes da seleção de imóveis.' },
+    { title: 'Informações para comparar', text: 'Características e condições são apresentadas com clareza, com espaço para suas perguntas.' },
+    { title: 'Acompanhamento de cada etapa', text: 'Da organização das visitas à troca de documentos, você acompanha os próximos passos.' },
+  ] },
+  about: { eyebrow: 'Por trás da curadoria', title: 'Um olhar atento ao seu jeito de morar.', text: 'Mais que uma lista de imóveis, uma busca com contexto.', paragraphs: ['A Clara parte de uma pergunta simples: o que não pode faltar na sua próxima casa? A resposta orienta a seleção e dá sentido a cada visita.', 'O atendimento é próximo e direto, para que você conheça os espaços com calma, entenda as condições e decida com as informações necessárias.'], registration: '', image: { src: './images/interior.webp', alt: 'Interior residencial com materiais naturais e ambientes integrados' } },
+  process: { eyebrow: 'Da busca à escolha', title: 'Um caminho claro, no seu tempo.', text: 'Cada etapa tem seu momento. Nenhuma decisão precisa ficar sem explicação.', items: [
+    { title: 'Conte o que procura', text: 'Converse sobre região, orçamento e os espaços que fazem diferença na sua rotina.' },
+    { title: 'Conheça de perto', text: 'Compare opções e organize visitas para observar a luz, a planta e o entorno.' },
+    { title: 'Avalie as condições', text: 'Revise valores, despesas e documentos com os profissionais responsáveis.' },
+    { title: 'Formalize a escolha', text: 'Com as condições alinhadas, acompanhe a formalização e a entrega das chaves.' },
+  ] },
+  visit: { eyebrow: 'Seu próximo endereço', title: 'Vamos encontrar o que combina com você?', text: 'Conte um pouco sobre sua busca. Região, orçamento e planos ajudam a começar a conversa.' },
+};

@@ -1,0 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { siteConfig as c } from './content/site';
+import './styles/global.css';
+document.title = c.meta.title;
+document.querySelector('meta[name="description"]')?.setAttribute('content', c.meta.description);
+document.querySelector('meta[property="og:title"]')?.setAttribute('content', c.meta.title);
+document.querySelector('meta[property="og:description"]')?.setAttribute('content', c.meta.description);
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);

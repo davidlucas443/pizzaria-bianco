@@ -1,81 +1,24 @@
-import { Menu, X } from 'lucide-react';
-import { motion } from 'framer-motion';
-
-const links = [
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Destaques', href: '#destaques' },
-  { label: 'Cardápio', href: '#cardapio' },
-  { label: 'Galeria', href: '#galeria' },
-  { label: 'Localização', href: '#localizacao' },
-];
-
-export function Navbar({ brandName, scrolled, mobileOpen, setMobileOpen }) {
-  return (
-    <motion.header
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
-        scrolled ? 'border-white/70 bg-white/85 shadow-soft backdrop-blur-xl' : 'border-transparent bg-transparent'
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#topo" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-700 text-sm font-extrabold text-white shadow-glow">
-            {brandName.slice(0, 1)}
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-700">{brandName}</p>
-            <p className="text-xs text-stone-500">Premium dining experience</p>
-          </div>
-        </a>
-
-        <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm font-semibold text-stone-700 transition hover:text-brand-700">
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="#cardapio"
-            className="rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-semibold text-stone-900 transition hover:border-brand-200 hover:text-brand-700"
-          >
-            Ver Cardápio
-          </a>
-          <a
-            href="#cta"
-            className="rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-800"
-          >
-            Peça Agora
-          </a>
-        </div>
-
-        <button
-          type="button"
-          aria-label="Abrir menu"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((value) => !value)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-sm md:hidden"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
-
-      <div className={`md:hidden ${mobileOpen ? 'block' : 'hidden'} border-t border-stone-200 bg-white/95 px-5 py-4 backdrop-blur-xl`}>
-        <div className="flex flex-col gap-3">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="rounded-2xl px-4 py-3 text-sm font-semibold text-stone-700 hover:bg-stone-100">
-              {link.label}
-            </a>
-          ))}
-          <a href="#cta" onClick={() => setMobileOpen(false)} className="rounded-2xl bg-brand-700 px-4 py-3 text-sm font-semibold text-white text-center">
-            Peça Agora
-          </a>
-        </div>
-      </div>
-    </motion.header>
-  );
+import { useEffect, useRef, useState } from 'react';
+import { Brand } from './Brand';
+import { siteConfig as c } from '../data/siteConfig';
+import { ContactAction } from './ContactAction';
+export function Navbar() {
+  const [open, setOpen] = useState(false);
+  const toggle = useRef(null);
+  const header = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    const key = e => { if (e.key === 'Escape') { setOpen(false); toggle.current?.focus(); } };
+    const outside = e => { if (!header.current?.contains(e.target)) setOpen(false); };
+    document.addEventListener('keydown', key); document.addEventListener('pointerdown', outside);
+    return () => { document.removeEventListener('keydown', key); document.removeEventListener('pointerdown', outside); };
+  }, [open]);
+  const links = c.navigation.filter(link => !link.section || c.sections[link.section]);
+  return <header ref={header} className="site-header"><div className="container nav-inner">
+    <button ref={toggle} type="button" className="menu-toggle" aria-label={open ? c.ui.closeMenu : c.ui.openMenu} aria-expanded={open} aria-controls="navigation" onClick={() => setOpen(!open)}><span className={open ? 'menu-lines active' : 'menu-lines'} aria-hidden="true" />{open ? 'Fechar' : 'Menu'}</button>
+    <a href="#topo" className="brand" aria-label="Bianco — início" onClick={() => setOpen(false)}><Brand /></a>
+    <div className="header-order"><ContactAction className="button small">{c.ui.headerOrder}</ContactAction></div>
+    <nav id="navigation" aria-label="Principal" className={open ? 'navigation is-open' : 'navigation'} data-lenis-prevent>
+      {links.map(link => <a key={link.id} href={`#${link.id}`} onClick={() => setOpen(false)}>{link.label}</a>)}
+    </nav></div></header>;
 }
