@@ -71,7 +71,8 @@ h2 { font-size:clamp(42px,4.5vw,70px); }
 .story .button { background:var(--wine); color:var(--cream); }
 .features { border-bottom:1px solid var(--line); }
 .feature-grid { gap:60px; }
-.feature-mark { font-size:2rem; }
+.feature-mark { display:block; width:40px; height:40px; color:var(--wine); }
+.feature-mark svg { display:block; width:100%; height:100%; }
 .visit { background:var(--cream); }
 .page-footer { background:var(--wine); color:var(--cream); padding-block:55px; }
 .page-footer .brand,.page-footer p,.page-footer .footer-inner>a:last-child { color:var(--cream); }

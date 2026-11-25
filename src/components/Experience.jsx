@@ -13,5 +13,10 @@ export function Story() {
   return <section id="historia" className="story"><div className="container story-grid"><img {...c.story.image} loading="lazy" width="1000" height="1000" /><div><p className="eyebrow">{c.story.eyebrow}</p><h2>{c.story.title}</h2>{c.story.paragraphs.map(p => <p key={p}>{p}</p>)}<ContactAction kind="reservation" className="button light">{c.ui.reserve}</ContactAction></div></div></section>;
 }
 export function Features() {
-  return <section className="container section features"><p className="eyebrow">{c.features.eyebrow}</p><h2>{c.features.title}</h2><div className="feature-grid">{c.features.items.map(item => <article key={item.title}><span aria-hidden="true" className="feature-mark">✳</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section>;
+  const icons = [
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 6h18M15 42h18M17 8c0 7 3 11 7 16-4 5-7 9-7 16M31 8c0 7-3 11-7 16 4 5 7 9 7 16" /><path d="M19 29h10M21 33h6" /></svg>,
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M39 8C24 8 12 12 9 24c-2 8 3 15 12 14 13-2 18-14 18-30Z" /><path d="M10 39c6-10 15-18 27-27M20 28l-1-9M27 21l9 1" /></svg>,
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 21 19-15 19 15M9 19v22h30V19M18 41V28h12v13" /><path d="M24 11v5" /></svg>,
+  ];
+  return <section className="container section features"><p className="eyebrow">{c.features.eyebrow}</p><h2>{c.features.title}</h2><div className="feature-grid">{c.features.items.map((item, index) => <article key={item.title}><span aria-hidden="true" className="feature-mark">{icons[index]}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section>;
 }
