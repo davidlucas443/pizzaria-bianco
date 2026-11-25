@@ -17,7 +17,7 @@ for (const path of ['../src/lib/contact.js', '../advocacia/src/lib/contact.ts', 
 }
 assert.equal(whatsappLink('', ''), null); assert.equal(phoneLink(''), null); assert.equal(mapLink(''), null); assert.equal(socialLink(''), null);
 const { siteConfig: bianco } = await import('../src/data/siteConfig.js');
-assert.notEqual(bianco.contact.messages.order, bianco.contact.messages.reservation);
+assert.equal(new URL(whatsappLink(bianco.contact.whatsapp, bianco.contact.messages.order)).hostname, 'wa.me');
 const law = await readFile(new URL('../advocacia/src/content/site.ts', import.meta.url), 'utf8');
 const realty = await readFile(new URL('../corretagem/src/content/site.ts', import.meta.url), 'utf8');
 // Node 26 executa tipos apagáveis; importar funções de imóveis não carrega o conteúdo.

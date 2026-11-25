@@ -10,7 +10,7 @@ export function Introduction() {
   return <section id="sobre" className="container introduction section"><p className="eyebrow">{c.presentation.eyebrow}</p><h2>{c.presentation.title}</h2><p>{c.presentation.text}</p></section>;
 }
 export function Story() {
-  return <section id="historia" className="story"><div className="container story-grid"><img {...c.story.image} loading="lazy" width="1000" height="1000" /><div><p className="eyebrow">{c.story.eyebrow}</p><h2>{c.story.title}</h2>{c.story.paragraphs.map(p => <p key={p}>{p}</p>)}<ContactAction kind="reservation" className="button light">{c.ui.reserve}</ContactAction></div></div></section>;
+  return <section id="historia" className="story"><div className="container story-grid"><img {...c.story.image} loading="lazy" width="1000" height="1000" /><div><p className="eyebrow">{c.story.eyebrow}</p><h2>{c.story.title}</h2>{c.story.paragraphs.map(p => <p key={p}>{p}</p>)}</div></div></section>;
 }
 export function Features() {
   const icons = [
