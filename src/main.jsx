@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import './rebrand.css';
+import './bio.css';
 import { siteConfig } from './data/siteConfig';
 document.title = siteConfig.meta.title;
 document.querySelector('meta[name="description"]')?.setAttribute('content', siteConfig.meta.description);

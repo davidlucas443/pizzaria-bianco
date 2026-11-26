@@ -1,0 +1,124 @@
+.bio-page {
+  min-height: 100svh;
+  padding: 38px 22px max(24px, env(safe-area-inset-bottom));
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.bio-content {
+  width: min(100%, 436px);
+  margin: 0 auto;
+}
+
+.bio-heading {
+  text-align: center;
+}
+
+.bio-mark {
+  display: block;
+  width: 56px;
+  height: 63px;
+  margin: 0 auto;
+  color: var(--wine);
+}
+
+.bio-kicker {
+  margin: 22px 0 8px;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.bio-heading h1 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 8vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.bio-subtitle {
+  margin: 10px 0 30px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+}
+
+.bio-links {
+  display: grid;
+  gap: 12px;
+}
+
+.bio-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 8px 12px;
+  min-height: 64px;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.bio-action:hover {
+  border-color: var(--wine);
+  background: var(--paper);
+}
+
+.bio-primary {
+  min-height: 88px;
+  margin-bottom: 4px;
+  border-color: var(--wine);
+  background: var(--wine);
+  color: var(--cream);
+}
+
+.bio-primary:hover {
+  border-color: var(--wine-dark);
+  background: var(--wine-dark);
+}
+
+.bio-primary small {
+  grid-column: 1 / -1;
+  color: var(--cream);
+  opacity: 0.82;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.bio-arrow {
+  display: block;
+  width: 18px;
+  height: 18px;
+  justify-self: end;
+}
+
+.bio-home {
+  border-color: var(--line);
+}
+
+.bio-footer {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .bio-page {
+    padding-top: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-action {
+    transition: none;
+  }
+}

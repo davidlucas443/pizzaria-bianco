@@ -7,7 +7,12 @@ import { Brand } from './components/Brand';
 import { FeaturedDishes, Menu } from './components/Menu';
 import { Contact } from './components/Contact';
 import { siteConfig as c } from './data/siteConfig';
+import { BioPage } from './components/BioPage';
 export default function App() {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  return path === '/bio' ? <BioPage /> : <LandingPage />;
+}
+function LandingPage() {
   const root = useRef(null);
   useMotion(root);
   return <div ref={root} id="topo"><a className="skip-link" href="#conteudo">{c.ui.skip}</a><Navbar /><LoadingScreen />

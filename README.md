@@ -6,6 +6,7 @@ A Bianco agora usa uma abertura editorial inspirada na composição da Viudes, h
 
 - `src/rebrand.css`: composição, header, cores e responsividade do rebranding.
 - `src/components/Brand.jsx`: marca vetorial usada no site.
+- `src/components/BioPage.jsx`: página de links compacta servida em `/bio`.
 - `src/lib/useMotion.js`: Lenis sincronizado ao ticker do GSAP e uma única cena fixada via ScrollTrigger em telas maiores que 900 px e altura mínima de 650 px. No celular e com movimento reduzido, os detalhes seguem em fluxo normal.
 - `src/components/LoadingScreen.jsx`: espera apenas a decodificação da foto principal, por até 1,5 segundo, liberando imediatamente em falha ou quando já carregada. Header e pedido continuam disponíveis. Links diretos pulam a espera.
 - `src/data/siteConfig.js`: conteúdo, contatos, imagem responsiva e três etapas de `journey`. A afirmação de longa fermentação é conteúdo demonstrativo do briefing e precisa ser confirmada para um negócio real.
@@ -38,11 +39,11 @@ npm.cmd run preview
 
 No Linux/macOS, use `npm` no lugar de `npm.cmd`. No Windows, `npm.cmd` também evita o bloqueio de `npm.ps1` pela política do PowerShell. Acesse a URL local que o Vite imprimir. Para encerrar, pressione Ctrl+C.
 
-O build gera `dist/`. Essa pasta pode ser publicada posteriormente em uma hospedagem estática. Não abra o HTML pelo protocolo `file://`: use o servidor local. Nenhum serviço precisa de variável de ambiente ou credencial.
+O build gera `dist/`. Essa pasta pode ser publicada posteriormente em uma hospedagem estática. O `vercel.json` encaminha `/bio` ao app React para que a rota também funcione quando acessada diretamente. Não abra o HTML pelo protocolo `file://`: use o servidor local. Nenhum serviço precisa de variável de ambiente ou credencial.
 
 ## Contatos e mensagens
 
-Os campos `contact.whatsapp`, `phone`, `instagram` e `address` começam vazios por segurança. Nenhum contato da versão anterior foi reaproveitado. Enquanto o WhatsApp estiver vazio ou sintaticamente inválido, os botões abrem um aviso acessível; nenhum número recebe mensagens.
+Os dados de contato são configurados em `siteConfig.js` e devem ser confirmados antes da publicação. Os botões de pedido do site e de `/bio` usam o WhatsApp configurado; o telefone e o endereço alimentam os links de chamada e de mapas.
 
 - WhatsApp: preencha com DDI, DDD e número, apenas dígitos. Use somente um número autorizado pelo cliente.
 - Telefone: informe o número completo com DDI; a página monta o link `tel:+...`.
@@ -79,9 +80,9 @@ Mantenha o aviso de demonstração enquanto houver conteúdo ilustrativo. Só o 
 
 A tipografia usa Fraunces e Manrope do Google Fonts, com alternativas locais Georgia e sans-serif. O CSS das fontes requer internet; sem conexão, as alternativas mantêm a página utilizável. Fontes de origem: [Fraunces](https://fonts.google.com/specimen/Fraunces) e [Manrope](https://fonts.google.com/specimen/Manrope), distribuídas com licença aberta pelo Google Fonts.
 
-## Pedidos e reservas
+## Pedidos e página Bio
 
-Edite separadamente `contact.messages.order` e `contact.messages.reservation`. “Fazer meu pedido” usa a mensagem de pedido; “Reservar mesa” usa a mensagem de reserva. Eles abrem o WhatsApp quando configurado, sem rolar para outra seção como substituto do contato.
+Edite `contact.messages.order` para personalizar a mensagem de pedido no WhatsApp. A página `/bio` compartilha os mesmos contatos e oferece atalhos para pedido, cardápio, mapa, telefone e site principal. Os botões de reserva não estão disponíveis.
 
 ## Adicionar ou remover pratos
 
